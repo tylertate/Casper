@@ -178,22 +178,17 @@ table { border-collapse: collapse; border-spacing: 0; }
 html {
     height: 100%;
     max-height: 100%;
-    font-size: 62.5%;
+    font-size: 12px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
     height: 100%;
     max-height: 100%;
-    font-family: "Merriweather", serif;
-    letter-spacing: 0.01rem;
-    font-size: 1.8rem;
-    line-height: 1.75em;
+    font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Century Gothic", "lemonde-sans", "Verdana", sans-serif;
+    font-size: 1.5em;
+    line-height: 1.56em;
     color: #3A4145;
-    -webkit-font-feature-settings: 'kern' 1;
-    -moz-font-feature-settings: 'kern' 1;
-    -o-font-feature-settings: 'kern' 1;
-    text-rendering: geometricPrecision;
 }
 
 ::-moz-selection {
@@ -206,50 +201,44 @@ body {
 
 h1, h2, h3,
 h4, h5, h6 {
-    -webkit-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-    -moz-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
-    -o-font-feature-settings: 'dlig' 1, 'liga' 1, 'lnum' 1, 'kern' 1;
     color: #2E2E2E;
     line-height: 1.15em;
     margin: 0 0 0.4em 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "lemonde-courrier", "Le Monde Courrier Pro", Georgia, serif;
     text-rendering: geometricPrecision;
 }
 
 h1 {
-    font-size: 5rem;
-    letter-spacing: -2px;
-    text-indent: -3px;
+    font-size: 4rem;
 }
 
 h2 {
-    font-size: 3.6rem;
-    letter-spacing: -1px;
-}
-
-h3 {
     font-size: 3rem;
 }
 
+h3 {
+    font-size: 2rem;
+}
+
 h4 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
 }
 
 h5 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 h6 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 a {
     color: #4A4A4A;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
-a:hover {
-    color: #111;
+.content a:hover {
+    color: #5b7430;
 }
 
 p, ul, ol, dl {
@@ -299,7 +288,7 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: #EFEFEF 1px solid;
+    border-top: #d5d0bf 1px solid;
     margin: 3.2em 0;
     padding: 0;
 }
@@ -309,7 +298,7 @@ blockquote {
     box-sizing: border-box;
     margin: 1.75em 0 1.75em -2.2em;
     padding: 0 0 0 1.75em;
-    border-left: #4A4A4A 0.4em solid;
+    border-left: #5b7430 0.4em solid;
 }
 
 blockquote p {
@@ -341,8 +330,8 @@ code, tt {
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
     white-space: pre-wrap;
-    border: #E3EDF3 1px solid;
-    background: #F7FAFB;
+    border: #d5d0bf 1px solid;
+    background: #edebe4;
     border-radius: 2px;
 }
 
@@ -350,14 +339,14 @@ pre {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 0 1.75em 0;
-    border: #E3EDF3 1px solid;
     width: 100%;
     padding: 10px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.9em;
     white-space: pre;
     overflow: auto;
-    background: #F7FAFB;
+    border: #d5d0bf 1px solid;
+    background: #edebe4;
     border-radius: 3px;
 }
 
@@ -439,6 +428,25 @@ margin on the iframe, cause it breaks stuff. */
     margin: 0;
 }
 
+/* Padding */
+
+.padded {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+@media screen and (max-width: 648px) {
+    .padded {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+@media screen and (max-width: 528px) {
+    .padded {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
 
 /* ==========================================================================
    3. Utilities - These things get used a lot
@@ -484,15 +492,6 @@ margin on the iframe, cause it breaks stuff. */
             transition: transform 0.5s ease;
 }
 
-body.nav-opened .site-wrapper {
-    overflow-x: hidden;
-    -webkit-transform: translate3D(-240px, 0, 0);
-        -ms-transform: translate3D(-240px, 0, 0);
-            transform: translate3D(-240px, 0, 0);
-    -webkit-transition: -webkit-transform 0.3s ease;
-            transition: transform 0.3s ease;
-}
-
 
 /* ==========================================================================
    4. General - The main styles for the the theme
@@ -507,182 +506,87 @@ body.nav-opened .site-wrapper {
     margin-bottom: 5rem;
     text-align: center;
     background: #222 no-repeat center center;
-    background-size: cover;
+    background-size: cover; 
     overflow: hidden;
 }
-
 .main-header .inner {
     width: 80%;
 }
 
+/* Blog title */
+h3.blog-title {
+    float: left;
+    padding: 0.5rem 0;
+    margin: -1px 0 0 0;
+    font-weight: 600;
+    font-size: 2.34rem;
+    line-height: 4rem;
+}
+
+/* Logo appears in the top left corner of your home page */
+.blog-logo {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 -2.5rem;
+    transition: -webkit-transform 0.2s;
+}
+.blog-logo:hover {
+    -webkit-transform: scale(1.08);
+}
+.blog-logo:active {
+    -webkit-transform: scale(1.04);
+}
+
+.blog-logo img {
+    width: 100%;
+}
+
+/* Nav */
 .main-nav {
     position: relative;
-    padding: 35px 40px;
-    margin: 0 0 30px 0;
+    height: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    -webkit-box-shadow: 1px 1px 0 #d5d0bf;
+    -moz-box-shadow: 1px 1px 0 #d5d0bf;
+    box-shadow: 1px 1px 0 #d5d0bf;
+    z-index: 1000;
+    transition: all ease 0.4s;
+}
+.main-nav ul {
+    padding: .667rem 0 .667rem 0.75rem;
+    margin: 0;
+    float: right;
+}
+.main-nav li {
+    display: block;
+    position: relative;
+    float: left;
+    padding: 0.334rem 0.75rem 0.334rem 0.75rem;
+    font-family: "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Century Gothic", "lemonde-sans", "Verdana", sans-serif;;
+    font-size: 1.334rem;
+    line-height: 2rem;
+    color: @black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.main-nav li:hover {
+    font-weight: 600;
+    color: black;
 }
 
 .main-nav a {
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-}
-
-/* Navigation */
-body.nav-opened .nav-cover {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 240px;
-    bottom: 0;
-    z-index: 200;
 }
 
 .nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 5;
-    width: 240px;
-    opacity: 0;
-    background: #111;
-    margin-bottom: 0;
-    text-align: left;
-    overflow-y: auto;
-    -webkit-transition: -webkit-transform 0.5s ease,
-                        opacity 0.3s ease 0.7s;
-            transition: transform 0.5s ease,
-                        opacity 0.3s ease 0.7s;
+    
 }
 
-body.nav-closed .nav {
-    -webkit-transform: translate3D(97px, 0, 0);
-        -ms-transform: translate3D(97px, 0, 0);
-            transform: translate3D(97px, 0, 0);
-}
 
-body.nav-opened .nav {
-    opacity: 1;
-    -webkit-transition: -webkit-transform 0.3s ease,
-                        opacity 0s ease 0s;
-            transition: transform 0.3s ease,
-                        opacity 0s ease 0s;
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0);
-}
-
-.nav-title {
-    position: absolute;
-    top: 45px;
-    left: 30px;
-    font-size: 16px;
-    font-weight: 100;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.nav-close {
-    position: absolute;
-    top: 38px;
-    right: 25px;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    font-size: 10px;
-}
-
-.nav-close:focus {
-    outline: 0;
-}
-
-.nav-close:before,
-.nav-close:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 1px;
-    background: rgb(150,150,150);
-    top: 15px;
-    -webkit-transition: background 0.15s ease;
-            transition: background 0.15s ease;
-}
-
-.nav-close:before {
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
-}
-
-.nav-close:after {
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-}
-
-.nav-close:hover:before,
-.nav-close:hover:after {
-    background: rgb(255,255,255);
-}
-
-.nav ul {
-    padding: 90px 9% 5%;
-    list-style: none;
-    counter-reset: item;
-}
-
-.nav li:before {
-    display: block;
-    float: right;
-    padding-right: 4%;
-    padding-left: 5px;
-    text-align: right;
-    font-size: 1.2rem;
-    vertical-align: bottom;
-    color: #B8B8B8;
-    content: counter(item, lower-roman);
-    counter-increment: item;
-}
-.nav li {
-    margin: 0;
-}
-.nav li a {
-    text-decoration: none;
-    line-height: 1.4;
-    font-size: 1.4rem;
-    display: block;
-    padding: 0.6rem 4%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.nav li a:after {
-    display: inline-block;
-    content: " .......................................................";
-    color: rgba(255,255,255,0.2);
-    margin-left: 5px;
-}
-.nav .nav-current:before {
-    color: #fff;
-}
-.nav .nav-current a:after {
-    content: " ";
-    border-bottom: rgba(255,255,255,0.5) 1px solid;
-    width: 100%;
-    height: 1px;
-}
-
-.nav a:link,
-.nav a:visited {
-    color: #B8B8B8;
-}
-
-.nav li.nav-current a,
-.nav a:hover,
-.nav a:active,
-.nav a:focus {
-    color: #fff;
-}
 
 .subscribe-button {
     -webkit-box-sizing: border-box;
@@ -761,107 +665,6 @@ body.nav-opened .nav {
 .archive-template .scroll-down,
 .archive-template .main-header:after {
     display: none
-}
-
-/* Appears in the top left corner of your home page */
-.blog-logo {
-    display: block;
-    float: left;
-    background: none !important; /* Makes sure there is never a background */
-    border: none !important; /* Makes sure there is never a border */
-}
-
-.blog-logo img {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
-    height: 38px;
-    padding: 1px 0 5px 0;
-    width: auto;
-}
-
-.menu-button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display: inline-block;
-    float: right;
-    height: 38px;
-    padding: 0 15px;
-    border-style: solid;
-    border-width: 1px;
-    opacity: 1;
-    text-align: center;
-    font-size: 12px;
-    text-transform: uppercase;
-    line-height: 35px;
-    white-space: nowrap;
-    border-radius: 3px;
-    transition: all 0.5s ease;
-}
-.menu-button:before {
-    font-size: 12px;
-    font-weight: bold;
-    margin-right: 6px;
-    position: relative;
-    top: 1px;
-}
-.menu-button:hover {
-    background: #fff;
-}
-.menu-button:focus {
-    outline: 0;
-}
-
-/* When the navigation is closed */
-.nav-closed .menu-button {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.6);
-}
-.nav-closed .menu-button:hover {
-    color: #222;
-}
-
-/* When the navigation is closed and there is no cover image */
-.nav-closed .no-cover .menu-button {
-    border-color: #BFC8CD;
-    color: #9EABB3;
-}
-.nav-closed .no-cover .menu-button:hover {
-    border-color: #555;
-    color: #555;
-}
-
-/* When the navigation is opened */
-.nav-opened .menu-button {
-    padding: 0 12px;
-    background: #111;
-    border-color: #111;
-    color: #fff;
-    -webkit-transform: translate3D(94px, 0, 0);
-        -ms-transform: translate3D(94px, 0, 0);
-            transform: translate3D(94px, 0, 0);
-    transition: all 0.3s ease;
-}
-
-.nav-opened .menu-button .word {
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-/* Special styles when overlaid on an image*/
-.main-nav.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    border: none;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
-}
-.no-cover .main-nav.overlay {
-    background: none;
 }
 
 /* The details of your blog. Defined in ghost/settings/ */
@@ -964,7 +767,7 @@ body:not(.post-template) .post-title {
     font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     line-height: 2.2rem;
-    color: #9EABB3;
+    color: #b3b0a1;
 }
 
 .author-thumb {
@@ -976,7 +779,7 @@ body:not(.post-template) .post-title {
 }
 
 .post-meta a {
-    color: #9EABB3;
+    color: #b3b0a1;
     text-decoration: none;
 }
 
@@ -994,7 +797,7 @@ body:not(.post-template) .post-title {
     display: inline-block;
     margin-left: 8px;
     padding-left: 12px;
-    border-left: #d5dbde 1px solid;
+    border-left: #b3b0a1 1px solid;
     text-transform: uppercase;
     font-size: 1.3rem;
     white-space: nowrap;
@@ -1143,14 +946,14 @@ body:not(.post-template) .post-title {
     font-size: 1.4rem;
     line-height: 1;
     font-style: italic;
-    color: #9EABB3;
+    color: #b3b0a1;
 }
 
 .author-meta a {
-    color: #9EABB3;
+    color: #b3b0a1;
 }
 .author-meta a:hover {
-    color: #111;
+    color: #5b7430;
 }
 
 /* Create some space to the right for the share links */
@@ -1182,7 +985,7 @@ body:not(.post-template) .post-title {
     font-size: 1.8rem;
     display: inline-block;
     margin: 1rem 1.6rem 1.6rem 0;
-    color: #BBC7CC;
+    color: #b3b0a1;
     text-decoration: none;
 }
 
@@ -1413,12 +1216,12 @@ body:not(.post-template) .post-title {
 
 .read-next-story p {
     margin: 0;
-    color: rgba(255,255,255,0.8);
+    color: #d5d0bf;
 }
 
 /* Special styles for posts with no cover images */
 .read-next-story.no-cover {
-    background: #f5f8fa;
+    background: #edebe4;
 }
 
 .read-next-story.no-cover:before {
@@ -1487,9 +1290,8 @@ body:not(.post-template) .post-title {
     width: 80%;
     max-width: 710px;
     margin: 4rem auto;
-    font-family: "Open Sans", sans-serif;
     font-size: 1.3rem;
-    color: #9EABB3;
+    color: #b3b0a1;
     text-align: center;
 }
 
@@ -1567,31 +1369,46 @@ body:not(.post-template) .post-title {
    10. Footer - The bottom of every page
    ========================================================================== */
 
-.site-footer {
-    position: relative;
-    margin: 8rem 0 0 0;
-    padding: 1rem 15px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 1rem;
-    line-height: 1.75em;
-    color: #BBC7CC;
+.sitefooter {
+  position: relative;
+  clear: both;
+  height: 7rem;
+  background-color: #d5d0bf;
 }
-
-.site-footer a {
-    color: #BBC7CC;
-    text-decoration: none;
-    font-weight: bold;
+.sitefooter-nav {
+  padding-top: 2.75rem;
+  text-align: center;
 }
-
-.site-footer a:hover {
-    border-bottom: #bbc7cc 1px solid;
+.sitefooter-nav ul {
+  margin: 0;
+  padding: 0;
 }
-
-.poweredby {
+.sitefooter-nav li {
+  display: inline;
+  padding-left: 2rem;
+}
+.sitefooter-nav li:first-child {
+  padding-left: 0;
+}
+.sitefooter-nav a {
+  color: #666;
+  text-decoration: none;
+}
+.sitefooter-nav a:hover {
+  text-decoration: underline;
+}
+@media screen and (max-width: 600px) {
+  .sitefooter {
+    height: auto;
+  }
+  .sitefooter-nav {
+    padding-bottom: 2.75rem;
+  }
+  .sitefooter-nav li,
+  .sitefooter-nav li:first-child {
     display: block;
-    width: 45%;
-    float: right;
-    text-align: right;
+    padding: 1rem;
+  }
 }
 
 .copyright {
@@ -1627,10 +1444,6 @@ body:not(.post-template) .post-title {
     .archive-template .main-header {
         min-height: 180px;
         padding: 10% 0;
-    }
-
-    .blog-logo img {
-        padding: 4px 0;
     }
 
     .page-title {
@@ -1740,6 +1553,28 @@ body:not(.post-template) .post-title {
 
 
 /* ==========================================================================
+   Crema Custom Media Query
+   ========================================================================== */
+
+@media screen and (max-width: 528px) {
+    .main-nav {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .blog-logo {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        width: 4rem;
+        height: 4rem;
+        margin: 0 -2rem;
+    }
+    .hide-small {
+        display: none;
+}
+
+
+/* ==========================================================================
    12. Media Queries - Smaller than 500px
    ========================================================================== */
 
@@ -1761,8 +1596,7 @@ body:not(.post-template) .post-title {
     }
 
     .main-nav {
-        padding: 5px;
-        margin-bottom: 2rem;
+        
     }
 
     .blog-logo {
@@ -1788,37 +1622,6 @@ body:not(.post-template) .post-title {
     body.nav-opened .menu-button {
         background: none;
         border: transparent;
-    }
-
-    .main-nav.overlay a:hover {
-        color: #fff;
-        border-color: transparent;
-        background: transparent;
-    }
-
-    .no-cover .main-nav.overlay {
-        background: none;
-    }
-    .no-cover .main-nav.overlay .menu-button {
-        border: none;
-    }
-
-    .main-nav.overlay .menu-button {
-        border-color: transparent;
-    }
-
-    .nav-title {
-        top: 25px;
-
-    }
-
-    .nav-close {
-        position: absolute;
-        top: 18px;
-    }
-
-    .nav ul {
-        padding: 60px 9% 5%;
     }
 
     .inner,

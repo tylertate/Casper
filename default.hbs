@@ -12,27 +12,51 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    {{! Favicons }}
+    <link rel="shortcut icon" href="https://crema.co/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://crema.co/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://crema.co/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://crema.co/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://crema.co/android-icon-192x192.png">
+    <meta name="msapplication-TileImage" content="https://crema.co/ms-icon-144x144.png">
 
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    
+    {{! Typekit }}
+    <script src="//use.typekit.net/nkm0sso.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
 </head>
 <body class="{{body_class}} nav-closed">
 
-    {{navigation}}
+    <nav class="main-nav padded clearfix">
+        <h3 class="blog-title">
+            <a href="{{@blog.url}}" title="{{@blog.title}}"><span class="hide-small">Crema.co </span>Blog</a>
+        </h3>
+
+        {{#if @blog.logo}}<a class="blog-logo" href="https://www.crema.co/"><img src="{{@blog.logo}}" alt="Crema.co" /></a>{{/if}}
+        
+        {{navigation}}
+    </nav>
 
     <div class="site-wrapper">
 
         {{! Everything else gets inserted here }}
         {{{body}}}
 
-        <footer class="site-footer clearfix">
-            <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        <footer class="sitefooter padded">
+            <nav class="sitefooter-nav">
+                <ul>
+                    <li><a href="http://blog.crema.co/">Blog</a></li>
+                    <li><a href="http://facebook.com/cremaco">Facebook</a></li>
+                    <li><a href="http://twitter.com/cremaco">Twitter</a></li>
+                    <li><a href="http://instagram.com/crema.co">Instagram</a></li>
+                    <li><a href="mailto:hello@crema.co">Contact</a></li>
+                </ul>
+            </nav>
         </footer>
 
     </div>
